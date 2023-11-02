@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hospital Management App</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" />
+</head>
+
+<body>
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="../../assets/undraw_medicine_b-1-ol.svg" alt="Image" class="img-fluid">
+    </div>
+    <div class="col-md-6">
+      <div class="login-container p-4">
+        <h1 class="stylish-heading text-center mb-3">Join HMS and be Healthy!</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <div class="form-group">
+            <label for="username"><i class="bi bi-person-fill"></i> Username:</label>
+            <input type="text" id="username" class="form-control" formControlName="username" [(ngModel)]="username" >
+            <div *ngIf="registerForm.controls['username'].invalid && registerForm.controls['username'].touched">
+              <div *ngIf="registerForm.controls['username'].hasError('required')">Username is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password"><i class="bi bi-lock-fill"></i> Password:</label>
+            <input type="password" id="password" class="form-control" formControlName="password"  [(ngModel)]="password">
+            <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+              <div *ngIf="registerForm.controls['password'].hasError('required')">Password is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="role"><i class="bi bi-people-fill"></i> Role:</label>
+            <select id="role" class="form-control" formControlName="role"  [(ngModel)]="role">
+              <option value="doctor">Doctor</option>
+              <option value="patient">Patient</option>
+            </select>
+            <div *ngIf="registerForm.controls['role'].invalid && registerForm.controls['role'].touched">
+              <div *ngIf="registerForm.controls['role'].hasError('required')">Role is required</div>
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf="role === 'doctor'" >
+            <label for="username"><i class="bi bi-person-fill"></i> Specialization:</label>
+            <input type="text" id="username" class="form-control" formControlName="username" [(ngModel)]="specialization" >
+          </div>
+
+          <div class="form-group" *ngIf="role === 'patient'">
+            <label for="genderSelect"><i class="bi bi-person-fill"></i> Gender:</label>
+            <select name="gender" class="form-control" formControlName="username"  id="genderSelect" [(ngModel)]="gender">
+              <option value="">Choose gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+
+          <div class="form-group" *ngIf="role === 'patient'">
+            <label for="username"><i class="bi bi-person-fill"></i> Age:</label>
+            <input type="text" id="username" class="form-control" formControlName="username" [(ngModel)]="age" >
+          </div>
+
+          <div class="form-group">
+            <label for="username"><i class="bi bi-person-fill"></i> contact:</label>
+            <input type="text" id="username" class="form-control" formControlName="username" [(ngModel)]="contact" >
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-3" [disabled]="registerForm.invalid"><i class="bi bi-person-plus"></i> Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

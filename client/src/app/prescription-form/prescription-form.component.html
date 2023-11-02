@@ -1,0 +1,29 @@
+<h2>Create Prescription</h2>
+
+<form (ngSubmit)="createPrescription()">
+  <div class="form-group">
+    <label for="patient">Patient:</label>
+    <select class="form-control" id="patient" [(ngModel)]="selectedPatient" name="patient">
+      <option *ngFor="let patient of patients" [value]="patient._id">{{ patient.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="doctor">Doctor:</label>
+    <select class="form-control" id="doctor" [(ngModel)]="selectedDoctor" name="doctor">
+      <option *ngFor="let doctor of doctors" [value]="doctor._id">{{ doctor.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="medication">Medication:</label>
+    <input type="text" class="form-control" id="medication" [(ngModel)]="medication" name="medication">
+  </div>
+
+  <div class="form-group">
+    <label for="dosage">Dosage:</label>
+    <input type="text" class="form-control" id="dosage" [(ngModel)]="dosage" name="dosage">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create Prescription</button>
+</form>

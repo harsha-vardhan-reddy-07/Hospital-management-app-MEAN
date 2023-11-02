@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hospital Management App</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" />
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+</head>
+
+<body >
+
+    <div class="jumbotron jumbotron-fluid my-5 p-3">
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container p-5">
+                        <h3 class="display-4">Welcome to Hospital Management App <i class="fas fa-hospital"></i></h3>
+                        <p class="lead">Manage your hospital operations efficiently! <i class="fas fa-clipboard-list"></i></p>
+                        <a class="btn btn-primary btn-lg animated bounce" routerLink="/book" role="button">Book Your Appointemnt Now <i class="fas fa-angle-right"></i></a>
+
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="../../assets/undraw_medical_care_movn.svg" alt="Hospital Management" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid  p-5" style="background-color: aliceblue;">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-4">
+                <h2><i class="fas fa-users"></i> Patient Management</h2>
+                <p>Efficiently manage patient records, appointments, and medical history.</p>
+                <a class="btn btn-secondary" routerLink="/patientdashboard" role="button">Login to Patients Dashboard <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="col-md-4">
+                <h2><i class="fas fa-user-md"></i> Doctor Profiles</h2>
+                <p>View profiles of skilled doctors and their areas of expertise.</p>
+                <a class="btn btn-secondary" routerLink="/doctordashboard" role="button">Login to Doctor Dashboard<i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="col-md-4">
+                <h2><i class="fas fa-calendar-check"></i> Appointment Scheduling</h2>
+                <p>Effortlessly schedule and manage appointments with doctors.</p>
+                <a class="btn btn-secondary" routerLink="/book" role="button">Schedule Appointments <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <app-about></app-about>
+                <!-- Add testimonial section here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <app-contact></app-contact>
+                <!-- Add contact form or contact information here -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

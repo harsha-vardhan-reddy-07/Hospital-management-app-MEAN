@@ -1,0 +1,36 @@
+
+
+<div class="container" *ngIf="isLoggedIn()">
+  <h2 class="display-4">Doctor Dashboard</h2>
+          <button class="btn btn-danger" routerLink="//prescription">Create Prescription</button>
+
+<div *ngIf="appointments" class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Patient Name</th>
+        <th>Date/Time</th>
+        <th>Dr. Name</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.name }}</td>
+        <td>{{ appointment.timeSlot}}</td>
+        <td>{{ appointment.doctor }}</td>
+        <td>{{ appointment.status }}</td>
+        <td>
+          <button (click)="approveAppointment(appointment._id)" class="btn btn-primary">Approve</button>
+          <!-- <button (click)="rejectAppointment(appointment._id)" class="btn btn-danger">Reject</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<div class="alert alert-primary" role="alert">
+  Login to see Doctor Dashboard
+</div>

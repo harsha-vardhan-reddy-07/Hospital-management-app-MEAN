@@ -1,0 +1,35 @@
+<div class="container mt-5" *ngIf="isLoggedIn()">
+  <h1 class="stylish-heading text-center mb-3">Schedule Your Appointment with Ease</h1>
+<form [formGroup]="bookingForm" (ngSubmit)="bookAppointment()" class="appointment-form">
+  <div class="form-group">
+    <label for="name"><i class="bi bi-person-fill"></i> Patient Name:</label>
+    <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter Patient Name">
+    <div *ngIf="bookingForm.controls['name'].invalid && bookingForm.controls['name'].touched" class="error-message">
+      <div *ngIf="bookingForm.controls['name'].hasError('required')">Name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="doctor"><i class="bi bi-person-fill"></i> Doctor:</label>
+    <select id="doctor" formControlName="doctor" class="form-control">
+      <option value="">Select Doctor</option>
+      <option *ngFor="let doctor of doctors | async" [value]="doctor.name">{{ doctor.name }}</option>
+    </select>
+    <div *ngIf="bookingForm.controls['doctor'].invalid && bookingForm.controls['doctor'].touched" class="error-message">
+      <div *ngIf="bookingForm.controls['doctor'].hasError('required')">Doctor is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="timeSlot"><i class="bi bi-clock-fill"></i> Date/Time Slot:</label>
+    <input type="datetime-local" id="timeSlot" formControlName="timeSlot" class="form-control"
+            placeholder="YYYY-MM-DDThh:mm:ss"> <!-- Use the bsConfig and bsDatepicker directives -->
+    <div *ngIf="bookingForm.controls['timeSlot'].invalid && bookingForm.controls['timeSlot'].touched" class="error-message">
+      <div *ngIf="bookingForm.controls['timeSlot'].hasError('required')">Time Slot is required</div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="bookingForm.invalid" class="btn btn-primary mt-3 mb-5"><i class="bi bi-calendar-plus"></i> Book Appointment</button>
+</form>
+</div>
+
+<div class="alert alert-primary" role="alert" *ngIf="!isLoggedIn()">
+ Register/Login to Continue Hospital management App
+</div>
